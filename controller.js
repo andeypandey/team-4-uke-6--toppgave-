@@ -7,7 +7,7 @@ function addBar() {
   errorText = "";
   inputValue >= 1 && inputValue <= 10
     ? numbers.push(inputValue)
-    : (errorText = "Input kan ikke være mindre enn 1 eller høyere enn 10");
+    : (errorText = `<h3 style="color: red;">Input kan ikke være mindre enn 1 eller høyere enn 10</h3>`);
   inputValue = null;
   show();
 }
@@ -20,8 +20,9 @@ function removeBar() {
 
 function editBar() {
   if (inputValue >= 1 && inputValue <= 10) {
-    numbers.splice(chosenBar - 1, 1);
-    numbers.splice(chosenBar - 1, 0, inputValue);
+    // Kan også brukes
+    // numbers.splice(chosenBar - 1, 1, inputValue);
+    numbers[chosenBar - 1] = inputValue; //mye enklere måte å endre noe i et array.
     chosenBar = "";
     inputValue = null;
   }
